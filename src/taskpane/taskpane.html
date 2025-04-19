@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text to Table Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script
+      type="text/javascript"
+      src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"
+    ></script>
+
+    <!-- Fluent UI CSS (optional styling) -->
+    <link
+      rel="stylesheet"
+      href="https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-core/11.1.0/css/fabric.min.css"
+    />
+
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="ms-font-m ms-Fabric">
+    <!-- Show this if not yet sideloaded -->
+    <section id="sideload-msg" class="ms-welcome__main">
+      <h2 class="ms-font-xl">
+        Please
+        <a
+          target="_blank"
+          href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing"
+          >sideload</a
+        >
+        your add-in to see the app body.
+      </h2>
+    </section>
+
+    <!-- Main app UI, hidden until Office is ready -->
+    <main id="app-body" class="ms-welcome__main" style="display: none">
+      <h2 class="ms-font-xl">Convert Selected Text to Table</h2>
+
+      <p>Select comma-separated text in your document, then click the button below:</p>
+
+      <button class="ms-Button ms-Button--primary" onclick="insertTableFromSelection()">
+        <span class="ms-Button-label">Convert Selected Text</span>
+      </button>
+
+      <div id="error-message" style="color: red; display: none; margin-top: 10px"></div>
+    </main>
+
+    <script src="./taskpane.js"></script>
+  </body>
+</html>
